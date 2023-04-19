@@ -2,6 +2,10 @@
 
 # inks2d <!-- omit in toc -->
 
+![npm](https://badgen.net/npm/v/inks2d)
+![npm](https://badgen.net/bundlephobia/minzip/inks2d)
+![npm](https://badgen.net/npm/license/inks2d)
+
 inks2d is a free no-dependency Typescript game engine designed for developing 2D games. It provides you with a fast, friendly and clean framework to prototype and develop your games on. This means that most of the hard work is already done, letting you concentrate on the design and testing of your game.
 
 ## Table of contents <!-- omit in toc -->
@@ -61,10 +65,10 @@ g.start();
 
 ## Support and Resources
 
-- Find examples in the [examples folder]().
+- Find examples in the [examples folder](https://github.com/inkasadev/inks2d/tree/main/packages/examples).
 - Read the [documentation]().
 - Discuss, share projects, ask technical questions and interact with other users on [Discussions]().
-- Again, have a look at the included [examples]() and [API documentation]() for more in-depth information.
+- Again, have a look at the included [examples](https://github.com/inkasadev/inks2d/tree/main/packages/examples) and [API documentation]() for more in-depth information.
 
 It was built by [Phillipe Martins (aka "Inkasa Dev")](), and is released for free under the MIT license, which means you can use it for almost any purpose (including commercial projects). We appreciate credit where possible, but it is not a requirement.
 
