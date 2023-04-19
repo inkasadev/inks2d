@@ -1,0 +1,17 @@
+{
+  "name": "examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "inks2d": "*",
+    "inks2d-utils": "*"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0",
+    "vite-plugin-list-directory-contents": "^1.4.5"
+  }
+}

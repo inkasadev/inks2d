@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "inks2d",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build --filter=inks2d",
+    "release": "turbo run build && changeset publish",
+    "validate": "turbo run validate --filter=inks2d",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.9.4",
+    "husky": "^8.0.3",
+    "tsup": "^6.7.0",
+    "turbo": "^1.8.5",
+    "typescript": "^5.0.2"
+  }
+}

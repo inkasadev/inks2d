@@ -1,0 +1,7 @@
+{
+  "types": {
+    "example": "Use this for the examples/playground folder",
+    "game": "Use this for the examples/games folder",
+    "bump": "Use this for bump versioning"
+  }
+}

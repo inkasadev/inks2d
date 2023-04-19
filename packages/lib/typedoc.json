@@ -1,0 +1,14 @@
+{
+	"$schema": "https://typedoc.org/schema.json",
+	"name": "inks2d",
+	"out": "docs",
+	"media": "../../media",
+	"entryPoints": ["./src/typedocs.ts"],
+	"sort": ["source-order"],
+	"categorizeByGroup": false,
+	"visibilityFilters": {},
+	"categoryOrder": ["inks2d", "Namespaces", "*"],
+	"excludePrivate": true,
+	"includeVersion": true,
+	"excludeNotDocumented": true
+}

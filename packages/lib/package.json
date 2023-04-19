@@ -1,0 +1,102 @@
+{
+	"name": "inks2d",
+	"version": "0.0.3",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"files": [
+		"dist/*",
+		"media/*"
+	],
+	"exports": {
+		".": "./dist/index.js",
+		"./collision": "./dist/collision/index.js",
+		"./effects/particles": "./dist/effects/particles/index.js",
+		"./effects/sfx": "./dist/effects/sfx/index.js",
+		"./effects/tweens": "./dist/effects/tweens/index.js",
+		"./effects/utils": "./dist/effects/utils/index.js",
+		"./extras": "./dist/extras/index.js",
+		"./geom": "./dist/geom/index.js",
+		"./graphics": "./dist/graphics/index.js",
+		"./group": "./dist/group/index.js",
+		"./inputs": "./dist/inputs/index.js",
+		"./math": "./dist/math/index.js",
+		"./text": "./dist/text/index.js",
+		"./tiles": "./dist/tiles/index.js",
+		"./utils": "./dist/utils/index.js"
+	},
+	"typesVersions": {
+		"*": {
+			"collision": [
+				"dist/collision/index.d.ts"
+			],
+			"effects/particles": [
+				"dist/effects/particles/index.d.ts"
+			],
+			"effects/sfx": [
+				"dist/effects/sfx/index.d.ts"
+			],
+			"effects/tweens": [
+				"dist/effects/tweens/index.d.ts"
+			],
+			"effects/utils": [
+				"dist/effects/utils/index.d.ts"
+			],
+			"extras": [
+				"dist/extras/index.d.ts"
+			],
+			"geom": [
+				"dist/geom/index.d.ts"
+			],
+			"graphics": [
+				"dist/graphics/index.d.ts"
+			],
+			"group": [
+				"dist/group/index.d.ts"
+			],
+			"inputs": [
+				"dist/inputs/index.d.ts"
+			],
+			"math": [
+				"dist/math/index.d.ts"
+			],
+			"text": [
+				"dist/text/index.d.ts"
+			],
+			"tiles": [
+				"dist/tiles/index.d.ts"
+			],
+			"utils": [
+				"dist/utils/index.d.ts"
+			]
+		}
+	},
+	"scripts": {
+		"dev": "tsup --watch --onSuccess \"node scripts/autocomplete.js\"",
+		"build": "tsup && node scripts/autocomplete.js",
+		"docs:dev": "typedoc --watch",
+		"docs:build": "typedoc",
+		"prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|json)\"",
+		"format": "npm run prettier -- --write",
+		"check-format": "npm run prettier -- --list-different",
+		"lint": "eslint src/** --parser-options={tsconfigRootDir:null}",
+		"validate": "npm run format && npm run lint",
+		"prepublishOnly": "node scripts/copyReadme.js",
+		"postpack": "node scripts/removeReadme.js"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.57.1",
+		"@typescript-eslint/parser": "^5.57.1",
+		"eslint": "^8.37.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-config-standard-with-typescript": "^34.0.1",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"prettier": "^2.8.7",
+		"tsup": "^6.7.0",
+		"typedoc": "^0.23.28",
+		"typescript": "^5.0.2"
+	}
+}
