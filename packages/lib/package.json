@@ -1,6 +1,26 @@
 {
 	"name": "inks2d",
-	"version": "0.0.3",
+	"version": "0.0.4",
+	"description": "A free no-dependency Typescript game engine designed for developing 2D games",
+	"author": "Phillipe Martins",
+	"bugs": "https://github.com/inkasadev/inks2d/issues",
+	"license": "MIT",
+	"licenseUrl": "https://www.opensource.org/licenses/mit-license.php",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/inkasadev/inks2d.git"
+	},
+	"keywords": [
+		"2d",
+		"HTML5",
+		"canvas",
+		"game",
+		"javascript",
+		"physics",
+		"tweens",
+		"typescript",
+		"web audio"
+	],
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
@@ -84,7 +104,6 @@
 		"prepublishOnly": "node scripts/copyReadme.js",
 		"postpack": "node scripts/removeReadme.js"
 	},
-	"license": "MIT",
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.57.1",
 		"@typescript-eslint/parser": "^5.57.1",
