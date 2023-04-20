@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "inks2d",
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],
