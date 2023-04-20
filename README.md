@@ -87,7 +87,7 @@ us.
 |               [Phillipe Martins](https://github.com/inkasadev/)                |
 
 See also the list of
-[contributors](https://github.com/inkasadev/studioled/contributors) who
+[contributors](https://github.com/inkasadev/inks2d/contributors) who
 participated in this project.
 
 ## License
