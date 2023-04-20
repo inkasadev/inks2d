@@ -4,6 +4,9 @@
 
 ![npm](https://badgen.net/npm/v/inks2d)
 ![npm](https://badgen.net/bundlephobia/minzip/inks2d)
+![npm](https://badgen.net/npm/dt/inks2d)
+
+![npm](https://badgen.net/github/stars/inkasadev/inks2d)
 ![npm](https://badgen.net/bundlephobia/dependency-count/inks2d)
 ![npm](https://badgen.net/npm/license/inks2d)
 
