@@ -1,7 +1,7 @@
-import { P as Point, D as DisplayObject } from "../DisplayObject-023e134d.js";
-import { L as Line, C as Circle, T as Triangle } from "../Triangle-78cb5992.js";
-import { R as Rectangle } from "../Rectangle-15a3786c.js";
-import "../Vector2D-7326dc95.js";
+import { P as Point, D as DisplayObject } from '../DisplayObject-023e134d.js';
+import { L as Line, C as Circle, T as Triangle } from '../Triangle-78cb5992.js';
+import { R as Rectangle } from '../Rectangle-15a3786c.js';
+import '../Vector2D-7326dc95.js';
 
 /**
  * Checks for a collision against a Point and a DisplayObject
@@ -12,12 +12,8 @@ import "../Vector2D-7326dc95.js";
  * @param global If the function should use global coordinates. Default False
  *
  */
-declare const hitTestPoint: (
-	point: Point,
-	obj: DisplayObject,
-	global?: boolean,
-) => {
-	hasContact: boolean;
+declare const hitTestPoint: (point: Point, obj: DisplayObject, global?: boolean) => {
+    hasContact: boolean;
 };
 /**
  * Checks for a collision between two Lines.
@@ -26,12 +22,9 @@ declare const hitTestPoint: (
  * @param l1 A Line object.
  * @param l2 A Line object.
  */
-declare const hitTestLine: (
-	l1: Line,
-	l2: Line,
-) => {
-	hasContact: boolean;
-	overlap?: Point;
+declare const hitTestLine: (l1: Line, l2: Line) => {
+    hasContact: boolean;
+    overlap?: Point;
 };
 /**
  * Checks for a collision against a Line and a Point.
@@ -40,11 +33,8 @@ declare const hitTestLine: (
  * @param l1 A Line object.
  * @param p1 A Point object.
  */
-declare const hitTestLinePoint: (
-	l1: Line,
-	p1: Point,
-) => {
-	hasContact: boolean;
+declare const hitTestLinePoint: (l1: Line, p1: Point) => {
+    hasContact: boolean;
 };
 /**
  * Checks for a collision against a Line and a Circle.
@@ -56,16 +46,10 @@ declare const hitTestLinePoint: (
  * @param slope If the Circle should slide across the Line. Default False
  * @param bounce If the Circle should bounce across the Line. Default False
  */
-declare const hitTestLineCircle: (
-	l1: Line,
-	c1: Circle,
-	solid?: boolean,
-	slope?: boolean,
-	bounce?: boolean,
-) => {
-	hasContact: boolean;
-	overlap?: Point | undefined;
-	side?: string | undefined;
+declare const hitTestLineCircle: (l1: Line, c1: Circle, solid?: boolean, slope?: boolean, bounce?: boolean) => {
+    hasContact: boolean;
+    overlap?: Point | undefined;
+    side?: string | undefined;
 };
 /**
  * Checks for a collision against a Line and a Rectangle.
@@ -76,16 +60,10 @@ declare const hitTestLineCircle: (
  * @param slope If the Rectangle should slide across the Line. Default False
  * @param bounce If the Rectangle should bounce across the Line. Default False
  */
-declare const hitTestLineRectangle: (
-	l1: Line,
-	r1: Rectangle,
-	solid?: boolean,
-	slope?: boolean,
-	bounce?: boolean,
-) => {
-	hasContact: boolean;
-	overlap?: Point | undefined;
-	side?: string | undefined;
+declare const hitTestLineRectangle: (l1: Line, r1: Rectangle, solid?: boolean, slope?: boolean, bounce?: boolean) => {
+    hasContact: boolean;
+    overlap?: Point | undefined;
+    side?: string | undefined;
 };
 /**
  * Checks for a collision between two Circles.
@@ -98,16 +76,9 @@ declare const hitTestLineRectangle: (
  * @param bounce If the Objects should bounce across each other. Default False
  * @param reactive If the Objects should be reactive across each other. Default False
  */
-declare const hitTestCircle: (
-	c1: Circle,
-	c2: Circle,
-	global?: boolean,
-	solid?: boolean,
-	bounce?: boolean,
-	reactive?: boolean,
-) => {
-	hasContact: boolean;
-	overlap?: number | undefined;
+declare const hitTestCircle: (c1: Circle, c2: Circle, global?: boolean, solid?: boolean, bounce?: boolean, reactive?: boolean) => {
+    hasContact: boolean;
+    overlap?: number | undefined;
 };
 /**
  * Checks for a collision between two Rectangles.
@@ -120,16 +91,10 @@ declare const hitTestCircle: (
  * @param bounce If the Objects should bounce across each other. Default False
  * @param reactive If the Objects should be reactive across each other. Default False
  */
-declare const hitTestRectangle: (
-	r1: Rectangle,
-	r2: Rectangle,
-	global?: boolean,
-	solid?: boolean,
-	bounce?: boolean,
-) => {
-	hasContact: boolean;
-	overlap?: Point | undefined;
-	side?: string | undefined;
+declare const hitTestRectangle: (r1: Rectangle, r2: Rectangle, global?: boolean, solid?: boolean, bounce?: boolean) => {
+    hasContact: boolean;
+    overlap?: Point | undefined;
+    side?: string | undefined;
 };
 /**
  * Checks for a collision between a Circle and a Rectangle.
@@ -140,16 +105,10 @@ declare const hitTestRectangle: (
  * @param solid If the Objects should be solid. Default False
  * @param bounce If the Objects should bounce across each other. Default False
  */
-declare const hitTestCircleRectangle: (
-	c1: Circle,
-	r1: Rectangle,
-	global?: boolean,
-	solid?: boolean,
-	bounce?: boolean,
-) => {
-	hasContact: boolean;
-	overlap?: Point | number;
-	side?: string;
+declare const hitTestCircleRectangle: (c1: Circle, r1: Rectangle, global?: boolean, solid?: boolean, bounce?: boolean) => {
+    hasContact: boolean;
+    overlap?: Point | number;
+    side?: string;
 };
 /**
  * Checks for a collision between a Circle and a Triangle.
@@ -160,16 +119,10 @@ declare const hitTestCircleRectangle: (
  * @param slope If the Circle should slide across the Triangle hypotenuse. Default False
  * @param bounce If the Circle should bounce across the Triangle hypotenuse. Default False
  */
-declare const hitTestCircleTriangle: (
-	c1: Circle,
-	t1: Triangle,
-	solid?: boolean,
-	slope?: boolean,
-	bounce?: boolean,
-) => {
-	hasContact: boolean;
-	overlap?: Point | number;
-	side?: string;
+declare const hitTestCircleTriangle: (c1: Circle, t1: Triangle, solid?: boolean, slope?: boolean, bounce?: boolean) => {
+    hasContact: boolean;
+    overlap?: Point | number;
+    side?: string;
 };
 /**
  * Checks for a collision between a Circle and a Triangle.
@@ -180,25 +133,8 @@ declare const hitTestCircleTriangle: (
  * @param slope If the Circle should slide across the Triangle hypotenuse. Default False
  * @param bounce If the Circle should bounce across the Triangle hypotenuse. Default False
  */
-declare const hitTestRectangleTriangle: (
-	r1: Rectangle,
-	t1: Triangle,
-	solid?: boolean,
-	slope?: boolean,
-	bounce?: boolean,
-) => {
-	hasContact: boolean;
+declare const hitTestRectangleTriangle: (r1: Rectangle, t1: Triangle, solid?: boolean, slope?: boolean, bounce?: boolean) => {
+    hasContact: boolean;
 };
 
-export {
-	hitTestCircle,
-	hitTestCircleRectangle,
-	hitTestCircleTriangle,
-	hitTestLine,
-	hitTestLineCircle,
-	hitTestLinePoint,
-	hitTestLineRectangle,
-	hitTestPoint,
-	hitTestRectangle,
-	hitTestRectangleTriangle,
-};
+export { hitTestCircle, hitTestCircleRectangle, hitTestCircleTriangle, hitTestLine, hitTestLineCircle, hitTestLinePoint, hitTestLineRectangle, hitTestPoint, hitTestRectangle, hitTestRectangleTriangle };
