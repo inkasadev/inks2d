@@ -36,7 +36,7 @@ jobs:
       - name: Generate Release
         if: steps.check.outputs.changed == 'true'
         run: |
-          git config user.email "hi@inkasadev"
+          git config user.email "hi@inkasadev.com"
           git config user.name "inks2d Bot"
           git config advice.ignoredHook false
           node scripts/create_release.js
