@@ -1,6 +1,6 @@
-import { type Tween } from "tweens/Tween";
 import { type DisplayObject } from "./DisplayObject";
 import { type Emitter } from "./effects/particles/Emitter";
+import { Tween } from "./effects/tweens";
 
 export const EC_DRAGGABLE_SPRITES: DisplayObject[] = [];
 export const EC_BUTTONS: DisplayObject[] = [];
