@@ -5,9 +5,15 @@
       "cache": false,
       "dependsOn": ["^dev"]
     },
+    "run:examples": {
+      "cache": false
+    },
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
+    },
+    "release": {
+      "cache": false
     },
     "validate": {
       "cache": false

@@ -7,8 +7,10 @@
   ],
   "scripts": {
     "dev": "turbo run dev --parallel",
+    "dev:lib": "turbo run dev --filter=inks2d",
+    "run:examples": "turbo run dev:examples --filter=examples",
     "build": "turbo run build --filter=inks2d",
-    "release": "turbo run build && changeset publish",
+    "release": "turbo run release --filter=inks2d",
     "validate": "turbo run validate --filter=inks2d",
     "prepare": "husky install"
   },

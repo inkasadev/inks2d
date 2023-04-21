@@ -102,7 +102,8 @@
 		"lint": "eslint src/** --parser-options={tsconfigRootDir:null}",
 		"validate": "npm run format && npm run lint",
 		"prepublishOnly": "node scripts/copyReadme.js",
-		"postpack": "node scripts/removeReadme.js"
+		"postpack": "node scripts/removeReadme.js",
+		"release": "npm run publish"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.57.1",

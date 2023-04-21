@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "dev:examples": "vite"
   },
   "dependencies": {
     "inks2d": "*"
