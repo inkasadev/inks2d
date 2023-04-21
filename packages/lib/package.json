@@ -1,6 +1,6 @@
 {
 	"name": "inks2d",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "A free no-dependency Typescript game engine designed for developing 2D games",
 	"author": "Phillipe Martins",
 	"bugs": "https://github.com/inkasadev/inks2d/issues",
@@ -103,7 +103,7 @@
 		"validate": "npm run format && npm run lint",
 		"prepublishOnly": "node scripts/copyReadme.js",
 		"postpack": "node scripts/removeReadme.js",
-		"release": "npm run publish"
+		"release": "npm publish"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.57.1",
