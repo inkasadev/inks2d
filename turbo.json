@@ -5,7 +5,7 @@
       "cache": false,
       "dependsOn": ["^dev"]
     },
-    "run:examples": {
+    "dev:examples": {
       "cache": false
     },
     "build": {
