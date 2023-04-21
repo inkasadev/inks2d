@@ -38,6 +38,7 @@ jobs:
         run: |
           git config user.email "hi@inkasadev"
           git config user.name "inks2d Bot"
+          git config advice.ignoredHook false
           node scripts/create_release.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
