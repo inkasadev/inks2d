@@ -1,5 +1,9 @@
 # Unreleased
 
+### Bugs
+
+- fix minor bugs
+
 ## v0.0.6 (2023-04-21)
 
 ### Bugs
