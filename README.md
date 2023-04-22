@@ -70,9 +70,9 @@ g.start();
 ## Support and Resources
 
 - Find examples in the [examples folder](https://github.com/inkasadev/inks2d/tree/main/packages/examples).
-- Read the [documentation]().
-- Discuss, share projects, ask technical questions and interact with other users on [Discussions]().
-- Again, have a look at the included [examples](https://github.com/inkasadev/inks2d/tree/main/packages/examples) and [API documentation]() for more in-depth information.
+- Read the [documentation](https://github.com/inkasadev/inks2d/tree/main/packages/lib/docs).
+- Discuss, share projects, ask technical questions and interact with other users on [Discussions](https://github.com/inkasadev/inks2d/discussions).
+- Again, have a look at the included [examples](https://github.com/inkasadev/inks2d/tree/main/packages/examples) and [API documentation](https://github.com/inkasadev/inks2d/tree/main/packages/lib/docs) for more in-depth information.
 
 It was built by [Phillipe Martins (aka "Inkasa Dev")](https://github.com/inkasadev), and is released for free under the MIT license, which means you can use it for almost any purpose (including commercial projects). We appreciate credit where possible, but it is not a requirement.
 
