@@ -79,7 +79,7 @@ It was built by [Phillipe Martins (aka "Inkasa Dev")](https://github.com/inkasad
 ## Contributing
 
 Please read
-[CONTRIBUTING.md]() for
+[CONTRIBUTING.md](https://github.com/inkasadev/inks2d/blob/master/.github/CONTRIBUTING.md) for
 details on our code of conduct, and the process for submitting pull requests to
 us.
 
