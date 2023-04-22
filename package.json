@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "turbo run dev --parallel",
     "dev:lib": "turbo run dev --filter=inks2d",
-    "run:examples": "npm run build && turbo run dev:examples --filter=examples",
+    "examples": "npm run build && turbo run dev:examples --filter=examples",
     "build": "turbo run build --filter=inks2d",
     "release": "npm run build && turbo run release --filter=inks2d",
     "validate": "turbo run validate --filter=inks2d",
