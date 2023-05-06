@@ -19,6 +19,8 @@ inks2d is a free no-dependency Typescript game engine designed for developing 2D
 - [Support and Resources](#support-and-resources)
 - [Contributing](#contributing)
 - [Showcase](#showcase)
+  - [Web](#web)
+  - [Android](#android)
 - [Authors](#authors)
 - [License](#license)
 
@@ -86,7 +88,15 @@ us.
 
 ## Showcase
 
-|               ![Noah Crush Mania](./.readme/noah-crush-mania.png)                |                   ![Shinobi Way](./.readme/shinobi-way.png)                    |                     ![Two Dots](./.readme/two-dots.png)                     |                 ![Get the Blacks](./.readme/get-the-black-dots.png)                 |
+### Web
+
+|    ![Pimi Jumpers](./.readme/showcase/pimi-jumpers.png)     |    ![Lolly Balls](./.readme/showcase/lolly-balls.png)    |
+| :---------------------------------------------------------: | :------------------------------------------------------: |
+| [Pimi Jumpers](https://www.ojogos.com.br/jogo/pimi-jumpers) | [Lolly Balls](https://www.jogos123.net/jogo/lolly-balls) |
+
+### Android
+
+|           ![Noah Crush Mania](./.readme/showcase/noah-crush-mania.png)           |               ![Shinobi Way](./.readme/showcase/shinobi-way.png)               |                ![Two Dots](./.readme/showcase/two-dots.png)                 |            ![Get the Blacks](./.readme/showcase/get-the-black-dots.png)             |
 | :------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
 | [Noah Crush Mania](https://play.google.com/store/apps/details?id=me.inkasa.noah) | [Shinobi Way](https://play.google.com/store/apps/details?id=me.inkasa.shinobi) | [Two Dots](https://play.google.com/store/apps/details?id=me.inkasa.twodots) | [Get the Blacks](https://play.google.com/store/apps/details?id=me.inkasa.getblacks) |
 
