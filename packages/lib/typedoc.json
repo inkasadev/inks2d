@@ -2,7 +2,7 @@
 	"$schema": "https://typedoc.org/schema.json",
 	"name": "inks2d",
 	"out": "docs",
-	"media": "../../media",
+	"media": "../../.readme",
 	"entryPoints": ["./src/typedocs.ts"],
 	"sort": ["source-order"],
 	"categorizeByGroup": false,

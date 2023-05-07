@@ -95,7 +95,7 @@
 		"dev": "tsup --watch --onSuccess \"node scripts/autocomplete.js\"",
 		"build": "tsup && node scripts/autocomplete.js",
 		"docs:dev": "typedoc --watch",
-		"docs:build": "typedoc",
+		"docs:build": "typedoc && node scripts/copyReadmeToDocs.js",
 		"prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|json)\"",
 		"format": "npm run prettier -- --write",
 		"check-format": "npm run prettier -- --list-different",
