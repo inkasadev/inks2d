@@ -10,6 +10,7 @@
     "dev:lib": "turbo run dev --filter=inks2d",
     "examples": "npm run build && turbo run dev:examples --filter=examples",
     "build": "turbo run build --filter=inks2d",
+    "docs:build": "turbo run docs:build --filter=inks2d",
     "release": "npm run build && turbo run release --filter=inks2d",
     "validate": "turbo run validate --filter=inks2d",
     "prepare": "husky install"
