@@ -28,5 +28,5 @@ jobs:
       - name: Publish documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./packages/lib/dist
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/lib/dist
