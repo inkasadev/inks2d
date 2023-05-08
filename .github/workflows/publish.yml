@@ -1,8 +1,10 @@
 name: Publish
+
 on:
   push:
     branches:
       - main
+
 jobs:
   npm-publish:
     name: npm-publish
@@ -17,22 +19,27 @@ jobs:
         with:
           diff-search: true
           file-name: ./packages/lib/package.json
+
       - name: Set up Node
         if: steps.check.outputs.changed == 'true'
         uses: actions/setup-node@v3
         with:
           node-version: "16"
+
       - name: Install
         if: steps.check.outputs.changed == 'true'
         run: npm ci
+
       - name: Setup publish token
         if: steps.check.outputs.changed == 'true'
         run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
       - name: Publish
         if: steps.check.outputs.changed == 'true'
         run: npm run release
+
       - name: Generate Release
         if: steps.check.outputs.changed == 'true'
         run: |

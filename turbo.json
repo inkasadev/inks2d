@@ -12,6 +12,10 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
+    "docs:build": {
+      "outputs": ["docs/**"],
+      "dependsOn": ["^build"]
+    },
     "release": {
       "cache": false
     },
