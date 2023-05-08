@@ -45,14 +45,14 @@ When creating an enhancement request, explain your use case and ultimate goal. T
 
 -   **Use a clear and descriptive title** for the issue to identify the suggestion.
 -   **Provide an example where this enhancement would improve inks2d**
--   **If possible, list another documentation generator where this feature exists**
+-   **If possible, list another 2D Game Engine where this feature exists**
 
 ### Documentation
 
 inks2d is documented in 2 primary areas.
 
 -   This repo's [README.md](https://github.com/inkasadev/inks2d/blob/master/README.md)
--   Doc comments of source files which are rendered in the [api docs](https://github.com/inkasadev/inks2d/tree/main/packages/lib/docs)
+-   Doc comments of source files which are rendered in the [api docs](https://inkasadev.github.io/inks2d/)
 
 If you would like to improve the documentation in any of these areas, please open an issue if there isn't one already to discuss what you would like to improve. Then submit a [Pull Request](#pull-requests) to this repo.
 
