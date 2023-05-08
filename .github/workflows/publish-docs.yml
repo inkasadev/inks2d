@@ -26,7 +26,7 @@ jobs:
         run: npm run docs:build
 
       - name: Publish documentation to GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
+        uses: peaceiris/actions-gh-pages@v3
         with:
           dir: ./packages/lib/dist
           branch: gh-pages
