@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  docs-publish:
+  publish-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Publish
-        run: npm run docs:build
+        run: npm run build:docs
 
       - name: Publish documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

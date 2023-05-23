@@ -12,7 +12,7 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
-    "docs:build": {
+    "build:docs": {
       "outputs": ["docs/**"],
       "dependsOn": ["^build"]
     },

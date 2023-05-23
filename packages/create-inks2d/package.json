@@ -6,7 +6,7 @@
 	"author": "Phillipe Martins",
 	"bin": {
 		"create-inks2d": "index.js",
-		"cva": "index.js"
+		"cig": "index.js"
 	},
 	"files": [
 		"index.js",

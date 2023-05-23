@@ -1,4 +1,4 @@
-name: Publish
+name: Publish create-inks2d
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         uses: EndBug/version-check@v2.1.0
         with:
           diff-search: true
-          file-name: ./packages/lib/package.json
+          file-name: ./packages/create-inks2d/package.json
 
       - name: Set up Node
         if: steps.check.outputs.changed == 'true'
@@ -38,7 +38,7 @@ jobs:
 
       - name: Publish
         if: steps.check.outputs.changed == 'true'
-        run: npm run release
+        run: npm run release:cig
 
       - name: Generate Release
         if: steps.check.outputs.changed == 'true'
