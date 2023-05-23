@@ -14,6 +14,11 @@ import { Platform } from "types";
 import PLATFORMS from "platforms";
 import TEMPLATES from "templates";
 
+const _dirname =
+	typeof __dirname !== "undefined"
+		? __dirname
+		: path.dirname(fileURLToPath(import.meta.url));
+
 /** Avoids autoconversion to number of the project name by
  *  defining that the args non associated with an option ( _ )
  *  needs to be parsed as a string.
@@ -173,11 +178,7 @@ const init = async () => {
 
 	console.log(`\nScaffolding project in ${root}...`);
 
-	const templateDir = path.resolve(
-		fileURLToPath(import.meta.url),
-		"../..",
-		`template-${template}`,
-	);
+	const templateDir = path.resolve(_dirname, "../", `template-${template}`);
 
 	const write = (file: string, content?: string) => {
 		const targetPath = path.join(root, renameFiles[file] ?? file);
