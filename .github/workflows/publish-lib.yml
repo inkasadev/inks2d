@@ -1,4 +1,4 @@
-name: Publish
+name: Publish inks2d
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
 
       - name: Publish
         if: steps.check.outputs.changed == 'true'
-        run: npm run release
+        run: npm run release:lib
 
       - name: Generate Release
         if: steps.check.outputs.changed == 'true'
@@ -46,6 +46,6 @@ jobs:
           git config user.email "hi@inkasadev.com"
           git config user.name "inks2d Bot"
           git config advice.ignoredHook false
-          node scripts/create_release.js
+          node packages/lib/scripts/create_release.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
