@@ -2,7 +2,7 @@
 
 ### Docs
 
-- docs: update loaders class [#4](https://github.com/inkasadev/inks2d/issues/4)
+- docs: update Loader class documentation [#4](https://github.com/inkasadev/inks2d/issues/4)
 
 ### Thanks
 
