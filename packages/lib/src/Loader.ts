@@ -127,6 +127,13 @@ export class Loader {
 		});
 	}
 
+	/**
+	 * Loads a base64 encoded image.
+	 *
+	 * @param source The base64 encoded image source.
+	 * @param tag The tag to assign to the loaded image.
+	 * @param callback An optional callback function to execute when the image is loaded.
+	 */
 	public loadbase64Image(
 		source: string,
 		tag: string,
@@ -141,6 +148,12 @@ export class Loader {
 		image.src = source;
 	}
 
+	/**
+	 * Loads an image file.
+	 *
+	 * @param source The path or URL of the image file.
+	 * @param callback An optional callback function to execute when the image is loaded.
+	 */
 	public loadImage(source: string, callback?: () => void): void {
 		const image = new Image();
 
@@ -151,6 +164,12 @@ export class Loader {
 		image.src = source;
 	}
 
+	/**
+	 * Loads a font file.
+	 *
+	 * @param source The path or URL of the font file.
+	 * @param callback An optional callback function to execute when the font is loaded.
+	 */
 	public loadFont(source: string, callback?: () => void): void {
 		const fontFamily = source.split("/").pop()?.split(".")[0] ?? "";
 		const newStyle = document.createElement("style");
@@ -160,6 +179,12 @@ export class Loader {
 		if (callback != null) callback();
 	}
 
+	/**
+	 * Loads a JSON file from the specified source.
+	 *
+	 * @param source The URL or file path of the JSON file.
+	 * @param callback An optional callback function to execute when the JSON file is loaded.
+	 */
 	public loadJson(source: string, callback?: () => void): void {
 		fetch(source).then((res) => {
 			if (res.status === 200) {
@@ -178,6 +203,13 @@ export class Loader {
 		});
 	}
 
+	/**
+	 * Creates tileset frames from a JSON file containing frame data.
+	 *
+	 * @param file The JSON file containing the frame data.
+	 * @param source The URL or file path of the JSON file.
+	 * @param callback An optional callback function to execute when the tileset frames are created.
+	 */
 	private createTilesetFrames(
 		file: any,
 		source: string,
@@ -203,6 +235,12 @@ export class Loader {
 		image.src = imgSrc;
 	}
 
+	/**
+	 * Loads a sound from the specified source.
+	 *
+	 * @param source The URL or file path of the sound.
+	 * @param callback An optional callback function to execute when the sound is loaded.
+	 */
 	public loadSound(source: string, callback?: () => void): void {
 		const sound = new Sound(source);
 		sound.load().then(() => {

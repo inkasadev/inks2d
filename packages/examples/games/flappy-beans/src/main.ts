@@ -1,6 +1,5 @@
 import { Engine, Scene } from "inks2d";
 import { SplashScreen } from "inks2d/extras";
-import { Rectangle } from "inks2d/geom";
 import { StartScreen } from "./scenes/StartScreen";
 
 const g = new Engine(290, 515, 60, false, "none");
@@ -44,13 +43,13 @@ g.scene = new SplashScreen(
     "assets/fonts/prstartk.ttf",
     "assets/sounds/bounce.wav",
   ],
-  new Rectangle(0, 0),
   () => {
     g.scene = new Main();
     g.pause();
   },
-  false,
-  g
+  0,
+  "assets/mw_inks2d.png",
+  true
 );
 g.centerscreen = true;
 g.start();

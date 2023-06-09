@@ -9,14 +9,14 @@
     "dev": "turbo run dev --parallel",
     "dev:lib": "turbo run dev --filter=inks2d",
     "dev:cig": "turbo run dev --filter=create-inks2d",
+    "dev:examples": "npm run build && turbo run dev:examples --filter=examples",
     "build:docs": "turbo run build:docs --filter=inks2d",
     "build:lib": "turbo run build --filter=inks2d",
     "build:cig": "turbo run build --filter=create-inks2d",
     "release:lib": "npm run build:lib && turbo run release --filter=inks2d",
     "release:cig": "npm run build:cig && turbo run release --filter=create-inks2d",
-    "prepare": "husky install",
     "validate": "turbo run validate --filter=inks2d",
-    "examples": "npm run build && turbo run dev:examples --filter=examples"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "git-commit-msg-linter": "^4.9.4",
