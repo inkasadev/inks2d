@@ -2,7 +2,7 @@
 
 ### Features
 
-- feat: SplashScreen class image support 
+- feat: SplashScreen class image support [#12](https://github.com/inkasadev/inks2d/issues/12)
 
 ### Docs
 
