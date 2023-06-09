@@ -2,75 +2,98 @@ import { DisplayObject } from "DisplayObject";
 import { Engine } from "Engine";
 import { Scene } from "Scene";
 import { Rectangle } from "inks2d/geom";
+import { Sprite } from "inks2d/graphics";
 import { Text } from "inks2d/text";
 import { wait } from "inks2d/utils";
 
 export class SplashScreen extends Scene {
 	private _loader: Rectangle = new Rectangle(1080, 1920, "black");
 	private _assetsToLoad: string[];
-	private _image: DisplayObject;
+	private _image: DisplayObject = new Rectangle(0, 0);
+	private _imagePath: string;
 	private _callback: () => void;
 	private _forceClick: boolean;
+	// @ts-ignore
 	private _g: Engine;
 	private _ctaText: string;
 	private _yOffset: number;
 
 	constructor(
 		assetsToLoad: string[],
-		image: DisplayObject,
-		callback: () => void | undefined,
-		forceClick: boolean,
-		g: Engine,
-		ctaText: string = "TAP TO START",
+		callback: () => void,
 		yOffset: number = 0,
+		imagePath: string,
+		forceClick: boolean = false,
+		ctaText: string = "TAP TO START",
 	) {
 		super();
 
 		this._assetsToLoad = assetsToLoad;
-		this._image = image;
+		this._imagePath = imagePath;
 		this._callback = callback;
 		this._forceClick = forceClick;
-		this._g = g;
 		this._ctaText = ctaText;
 		this._yOffset = yOffset;
 	}
 
 	override start(e: Engine): void {
 		super.start(e);
+		this._g = e;
 
 		this._loader.pivot.x = this._loader.pivot.y = 0;
 		this._loader.width = this._g.stage.width;
 		this._loader.height = this._g.stage.height;
 		this._g.stage.addChild(this._loader);
 
-		this._assetsToLoad && this.loadAssets();
+		if (!this._imagePath) {
+			this._assetsToLoad && this.loadAssets();
+			return;
+		}
+
+		this._g.loader.onComplete = () => {
+			const maxWidth = this._g.stage.width / 2.5;
+			const maxHeight = this._g.stage.height / 2.5;
+			const minSize = Math.min(Math.min(maxWidth, maxHeight), 300);
+			const targetArea = minSize * minSize;
+
+			this._image = new Sprite(this._g.loader.store[this._imagePath]);
+			const newWidth = Math.sqrt(
+				(this._image.width / this._image.height) * targetArea,
+			);
+			const newHeight = targetArea / newWidth;
+			this._image.width = Math.round(newWidth);
+			this._image.height = Math.round(
+				newHeight - (this._image.width - newWidth),
+			);
+			this._assetsToLoad && this.loadAssets();
+		};
+		this._g.loader.load([this._imagePath]);
 	}
 
 	private loadAssets(): void {
+		const maxWidth = this._g.stage.width / 2.5;
+
 		this._image.pivot.x = this._image.pivot.y = 0.5;
-		this.updateObjScale(this._image);
 		this._loader.putCenter(this._image);
 		this._loader.addChild(this._image);
 
-		const maxWidth = this._g.stage.width / 2.5;
-
-		const back = new Rectangle(maxWidth, 50, "gray", "black", 2, 5);
+		const back = new Rectangle(maxWidth, 25, "gray", "black", 2, 5);
 		back.pivot.x = 0;
 		this.updateObjSize(back);
 		back.width = maxWidth - 3;
 		back.position.x = 540 - 210;
-		back.position.y =
-			960 + this._image.height / 2 + back.height + this._yOffset;
+		back.position.y = 960;
 		this.updateObjPos(back);
+		back.position.y += this._image.height / 2 + back.height + this._yOffset;
 		this._loader.addChild(back);
 
-		const front = new Rectangle(0, 50, "#ddd", "none", 2, 1);
+		const front = new Rectangle(0, 25, "#ddd", "none", 2, 1);
 		front.pivot.x = 0;
 		this.updateObjSize(front);
 		front.position.x = 540 - 210;
-		front.position.y =
-			960 + this._image.height / 2 + back.height + this._yOffset;
+		front.position.y = 960;
 		this.updateObjPos(front);
+		front.position.y += this._image.height / 2 + back.height + this._yOffset;
 		this._loader.addChild(front);
 
 		this._g.loader.onUpdate = (loaded, total) => {
@@ -83,11 +106,6 @@ export class SplashScreen extends Scene {
 		};
 
 		this._g.loader.load(this._assetsToLoad);
-	}
-
-	private updateObjScale(obj: DisplayObject): void {
-		obj.scale.x = (this._g.stage.width * obj.scale.x) / 1080;
-		obj.scale.y = (this._g.stage.height * obj.scale.y) / 1920;
 	}
 
 	private updateObjSize(obj: DisplayObject): void {
@@ -112,9 +130,13 @@ export class SplashScreen extends Scene {
 		start.family = "ubuntu";
 		start.pivot.x = start.pivot.y = 0.5;
 		start.position.x = 540 + 8;
-		start.position.y = 960 + this._image.height / 2 + 90 + this._yOffset;
+		start.position.y = 960;
 		start.size = (this._g.stage.width * start.size) / 1080;
 		this.updateObjPos(start);
+		start.position.y +=
+			this._image.height / 2 +
+			this._loader.children[1].height * 3.5 +
+			this._yOffset;
 		this._loader.addChild(start);
 
 		this._g.pointer.release = () => {
