@@ -1,5 +1,9 @@
 # Unreleased
 
+### Features
+
+- feat: SplashScreen class image support [#12](https://github.com/inkasadev/inks2d/issues/12)
+
 ### Docs
 
 - docs: update Loader class documentation [#4](https://github.com/inkasadev/inks2d/issues/4)

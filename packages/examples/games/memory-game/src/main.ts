@@ -1,5 +1,4 @@
 import { Engine, Scene } from "inks2d";
-import { Rectangle } from "inks2d/geom";
 import { SplashScreen } from "inks2d/extras";
 import { GameScreen } from "./scenes/GameScreen";
 
@@ -20,12 +19,11 @@ class Main extends Scene {
 
 g.scene = new SplashScreen(
   ["assets/images/cards.png"],
-  new Rectangle(0, 0),
   () => {
     g.scene = new Main();
   },
-  false,
-  g
+  0,
+  "assets/mw_inks2d.png"
 );
 
 g.centerscreen = true;
