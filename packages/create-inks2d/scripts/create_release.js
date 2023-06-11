@@ -118,6 +118,7 @@ async function main() {
 	end = fullChangelog.lastIndexOf("\n", end);
 
 	console.log("Creating tag...");
+
 	// Delete the tag if it exists already.
 	await exec(`git tag -d ${currentVersionForTag}`).catch(() => void 0);
 	await exec(`git tag ${currentVersionForTag}`);

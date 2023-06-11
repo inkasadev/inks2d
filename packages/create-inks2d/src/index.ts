@@ -53,7 +53,7 @@ const init = async () => {
 					name: "projectName",
 					message: reset("Project name:"),
 					initial: defaultTargetDir,
-					onState: (state) => {
+					onState: (state: any) => {
 						targetDir = formatTargetDir(state.value) || defaultTargetDir;
 					},
 				},
@@ -81,7 +81,7 @@ const init = async () => {
 					name: "packageName",
 					message: reset("Package name:"),
 					initial: () => toValidPackageName(getProjectName()),
-					validate: (dir) =>
+					validate: (dir: any) =>
 						isValidPackageName(dir) || "Invalid package.json name",
 				},
 				{
@@ -93,7 +93,7 @@ const init = async () => {
 							? reset(
 									`"${argTemplate}" isn't a valid template. Please choose from below: `,
 							  )
-							: reset("Select a template:"),
+							: reset("Select a platform:"),
 					initial: 0,
 					choices: PLATFORMS.map((platform) => {
 						const platformColor = platform.color;
