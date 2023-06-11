@@ -31,5 +31,3 @@ const PLATFORMS_NAMES = PLATFORMS.map(
 ).reduce((a, b) => a.concat(b), []);
 
 export { PLATFORMS, PLATFORMS_NAMES };
-
-export default PLATFORMS;
