@@ -11,8 +11,7 @@ import minimist from "minimist";
 import prompts from "prompts";
 import { red, reset } from "kolorist";
 import { Platform } from "types";
-import PLATFORMS from "platforms";
-import TEMPLATES from "templates";
+import { PLATFORMS, PLATFORMS_NAMES } from "platforms";
 
 const _dirname =
 	typeof __dirname !== "undefined"
@@ -25,18 +24,18 @@ const _dirname =
  */
 const argv = minimist<{
 	t?: string;
-	template?: string;
+	platform?: string;
 }>(process.argv.slice(2), { string: ["_"] });
 
 const cwd = process.cwd();
-const defaultTargetDir = "inks2d-project";
+const defaultTargetDir = "inks2d-game";
 const renameFiles: Record<string, string | undefined> = {
 	_gitignore: ".gitignore",
 };
 
 const init = async () => {
 	const argTargetDir = formatTargetDir(argv._[0]);
-	const argTemplate = argv.template || argv.t;
+	const argPlatform = argv.platform || argv.t;
 	let targetDir = argTargetDir || defaultTargetDir;
 	let result: prompts.Answers<
 		"projectName" | "overwrite" | "packageName" | "platform" | "variant"
@@ -86,12 +85,15 @@ const init = async () => {
 				},
 				{
 					type:
-						argTemplate && TEMPLATES.includes(argTemplate) ? null : "select",
+						argPlatform && PLATFORMS_NAMES.includes(argPlatform)
+							? null
+							: "select",
 					name: "platform",
 					message:
-						typeof argTemplate === "string" && !TEMPLATES.includes(argTemplate)
+						typeof argPlatform === "string" &&
+						!PLATFORMS_NAMES.includes(argPlatform)
 							? reset(
-									`"${argTemplate}" isn't a valid template. Please choose from below: `,
+									`"${argPlatform}" isn't a valid platform. Please choose from below: `,
 							  )
 							: reset("Select a platform:"),
 					initial: 0,
@@ -139,15 +141,15 @@ const init = async () => {
 		fs.mkdirSync(root, { recursive: true });
 	}
 
-	// determine template
-	let template: string = variant || platform?.name || argTemplate;
+	// Determine platform
+	let plaftormName: string = variant || platform?.name || argPlatform;
 	const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
 	const pkgManager = pkgInfo ? pkgInfo.name : "npm";
 	const isYarn1 = pkgManager === "yarn" && pkgInfo?.version.startsWith("1.");
 	const { customCommand } =
 		PLATFORMS.flatMap((f) => f.variants).find((v) => {
 			if (!v) return false;
-			return v.name === template;
+			return v.name === plaftormName;
 		}) ?? {};
 
 	if (customCommand) {
@@ -178,7 +180,7 @@ const init = async () => {
 
 	console.log(`\nScaffolding project in ${root}...`);
 
-	const templateDir = path.resolve(_dirname, "../", `template-${template}`);
+	const platformDir = path.resolve(_dirname, "../", `platform-${plaftormName}`);
 
 	const write = (file: string, content?: string) => {
 		const targetPath = path.join(root, renameFiles[file] ?? file);
@@ -186,17 +188,17 @@ const init = async () => {
 		if (content) {
 			fs.writeFileSync(targetPath, content);
 		} else {
-			copy(path.join(templateDir, file), targetPath);
+			copy(path.join(platformDir, file), targetPath);
 		}
 	};
-	const files = fs.readdirSync(templateDir);
+	const files = fs.readdirSync(platformDir);
 
 	for (const file of files.filter((f) => f !== "package.json")) {
 		write(file);
 	}
 
 	const pkg = JSON.parse(
-		fs.readFileSync(path.join(templateDir, `package.json`), "utf-8"),
+		fs.readFileSync(path.join(platformDir, `package.json`), "utf-8"),
 	);
 	pkg.name = packageName || getProjectName();
 

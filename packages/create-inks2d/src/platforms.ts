@@ -26,4 +26,8 @@ const PLATFORMS: Platform[] = [
 	},*/,
 ];
 
-export default PLATFORMS;
+const PLATFORMS_NAMES = PLATFORMS.map(
+	(f) => (f.variants && f.variants.map((v) => v.name)) || [f.name],
+).reduce((a, b) => a.concat(b), []);
+
+export { PLATFORMS, PLATFORMS_NAMES };
