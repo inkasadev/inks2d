@@ -38,7 +38,7 @@ yarn create inks2d my-inks2d-game --template web
 pnpm create inks2d my-inks2d-game --template web
 ```
 
-Currently supported template presets include:
+Currently supported platform presets include:
 
 - `web`
 

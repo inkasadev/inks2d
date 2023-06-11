@@ -2,18 +2,19 @@
 
 # inks2d <!-- omit in toc -->
 
-![npm](https://badgen.net/npm/v/inks2d)
-![npm](https://badgen.net/bundlephobia/minzip/inks2d)
-![npm](https://badgen.net/npm/dt/inks2d)
+![npm](https://img.shields.io/npm/v/inks2d?style=flat-square)
+![minzip](https://img.shields.io/bundlephobia/minzip/inks2d?style=flat-square)
+![npm-dt](https://img.shields.io/npm/dt/inks2d?style=flat-square)
 
-![npm](https://badgen.net/github/stars/inkasadev/inks2d)
-![npm](https://badgen.net/bundlephobia/dependency-count/inks2d)
-![npm](https://badgen.net/npm/license/inks2d)
+![stars](https://img.shields.io/github/stars/inkasadev/inks2d?style=flat-square)
+![code-quality](https://img.shields.io/codefactor/grade/github/inkasadev/inks2d/main?style=flat-square)
+![license](https://img.shields.io/github/license/inkasadev/inks2d?style=flat-square)
 
 inks2d is a free no-dependency Typescript game engine designed for developing 2D games. It provides you with a fast, friendly and clean framework to prototype and develop your games on. This means that most of the hard work is already done, letting you concentrate on the design and testing of your game.
 
 ## Table of contents <!-- omit in toc -->
 - [Features](#features)
+- [Packages](#packages)
 - [Installation](#installation)
 - [Basic Example](#basic-example)
 - [Support and Resources](#support-and-resources)
@@ -23,6 +24,8 @@ inks2d is a free no-dependency Typescript game engine designed for developing 2D
   - [Android](#android)
 - [Authors](#authors)
 - [License](#license)
+
+---
 
 ## Features
 
@@ -35,11 +38,57 @@ inks2d is a free no-dependency Typescript game engine designed for developing 2D
 - A lot of helper functions for animations, tilemaps, text, backdrops, and more.
 - Tree shaking support.
 
+---
+
+## Packages
+
+| Package                                 | Version (click for changelogs)                                                                                                              |
+| --------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| [inks2d](packages/inks2d)               | [![vite version](https://img.shields.io/npm/v/inks2d.svg?label=%20&style=flat-square)](packages/lib/CHANGELOG.md)                           |
+| [create-inks2d](packages/create-inks2d) | [![create-inks2d version](https://img.shields.io/npm/v/create-inks2d.svg?label=%20&style=flat-square)](packages/create-inks2d/CHANGELOG.md) |
+
+---
+
 ## Installation
 
-```sh
-$ npm install inks2d --save
+With NPM:
+
+```bash
+$ npm create inks2d@latest
 ```
+
+With Yarn:
+
+```bash
+$ yarn create inks2d
+```
+
+With PNPM:
+
+```bash
+$ pnpm create inks2d
+```
+
+Then follow the prompts!
+
+You can also directly specify the project name and the platform you want to use via additional command line options. For example, to scaffold a inks2d + Web project, run:
+
+```bash
+# npm 6.x
+npm create inks2d@latest my-inks2d-game --template web
+
+# npm 7+, extra double-dash is needed:
+npm create inks2d@latest my-inks2d-game -- --template web
+
+# yarn
+yarn create inks2d my-inks2d-game --template web
+
+# pnpm
+pnpm create inks2d my-inks2d-game --template web
+```
+See [create-inks2d](https://github.com/inkasadev/inks2d/tree/main/packages/create-inks2d) for more details on each supported platform
+
+---
 
 ## Basic Example
 
@@ -55,8 +104,8 @@ class Main extends Scene {
     super();
   }
 
-  async start(engine: Engine) {
-    super.start(engine);
+  async start(e: Engine) {
+    super.start(e);
 
     const rect = new Rectangle(50, 50, "blue");
     rect.position.x = g.stage.width / 2;
@@ -70,6 +119,8 @@ g.start();
 
 ```
 
+---
+
 ## Support and Resources
 
 - Find examples in the [examples folder](https://github.com/inkasadev/inks2d/tree/main/packages/examples).
@@ -79,12 +130,16 @@ g.start();
 
 It was built by [Phillipe Martins (aka "Inkasa Dev")](https://github.com/inkasadev), and is released for free under the MIT license, which means you can use it for almost any purpose (including commercial projects). We appreciate credit where possible, but it is not a requirement.
 
+---
+
 ## Contributing
 
 Please read
 [CONTRIBUTING.md](https://github.com/inkasadev/inks2d/blob/master/.github/CONTRIBUTING.md) for
 details on our code of conduct, and the process for submitting pull requests to
 us.
+
+---
 
 ## Showcase
 
@@ -100,6 +155,8 @@ us.
 | :------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
 | [Noah Crush Mania](https://play.google.com/store/apps/details?id=me.inkasa.noah) | [Shinobi Way](https://play.google.com/store/apps/details?id=me.inkasa.shinobi) | [Two Dots](https://play.google.com/store/apps/details?id=me.inkasa.twodots) | [Get the Blacks](https://play.google.com/store/apps/details?id=me.inkasa.getblacks) |
 
+---
+
 ## Authors
 
 | ![Phillipe Martins](https://avatars.githubusercontent.com/u/7750404?v=4&s=150) |
@@ -109,6 +166,8 @@ us.
 See also the list of
 [contributors](https://github.com/inkasadev/inks2d/contributors) who
 participated in this project.
+
+---
 
 ## License
 
