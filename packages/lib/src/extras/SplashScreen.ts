@@ -46,7 +46,7 @@ export class SplashScreen extends Scene {
 		this._g.stage.addChild(this._loader);
 
 		if (!this._splashImage) {
-			this._assetsToLoad && this.loadAssets();
+			this.loadAssets();
 			return;
 		}
 
@@ -68,14 +68,14 @@ export class SplashScreen extends Scene {
 				this._logo.height = Math.round(
 					newHeight - (this._logo.width - newWidth),
 				);
-				this._assetsToLoad && this.loadAssets();
+				this.loadAssets();
 			};
 			this._g.loader.load([this._splashImage]);
 			return;
 		}
 
 		this._logo = this._splashImage;
-		this._assetsToLoad && this.loadAssets();
+		this.loadAssets();
 	}
 
 	private loadAssets(): void {
@@ -108,6 +108,12 @@ export class SplashScreen extends Scene {
 			const ratio = Math.floor((loaded * 100) / total);
 			front.width = (ratio * maxWidth) / 100;
 		};
+
+		if (this._assetsToLoad.length === 0) {
+			this._g.loader.onUpdate(1, 1);
+			this.startGame();
+			return;
+		}
 
 		this._g.loader.onComplete = () => {
 			this.startGame();

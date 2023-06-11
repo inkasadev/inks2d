@@ -1,0 +1,26 @@
+{
+	"plugins": ["@typescript-eslint/eslint-plugin"],
+	"parser": "@typescript-eslint/parser",
+	"overrides": [
+		{
+			"files": [".ts"],
+			"extends": ["standard-with-typescript", "eslint-config-prettier"],
+			"parserOptions": {
+				"project": "./tsconfig.json",
+				"tsconfigRootDir": "./packages/lib",
+				"ecmaVersion": "latest",
+				"sourceType": "module"
+			}
+		}
+	],
+	"rules": {
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/strict-boolean-expressions": "off",
+		"@typescript-eslint/no-this-alias": "warn",
+		"@typescript-eslint/no-floating-promises": "off"
+	},
+	"env": {
+		"browser": true
+	}
+}
