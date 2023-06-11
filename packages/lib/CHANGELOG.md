@@ -1,5 +1,7 @@
 # Unreleased
 
+# v0.1.0 (2023-06-11)
+
 ### Features
 
 - feat: SplashScreen class image support [#12](https://github.com/inkasadev/inks2d/issues/12)
