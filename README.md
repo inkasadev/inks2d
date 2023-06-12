@@ -44,7 +44,7 @@ inks2d is a free no-dependency Typescript game engine designed for developing 2D
 
 | Package                                 | Version (click for changelogs)                                                                                                              |
 | --------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| [inks2d](packages/inks2d)               | [![vite version](https://img.shields.io/npm/v/inks2d.svg?label=%20&style=flat-square)](packages/lib/CHANGELOG.md)                           |
+| [inks2d](packages/lib)                  | [![vite version](https://img.shields.io/npm/v/inks2d.svg?label=%20&style=flat-square)](./CHANGELOG_inks2d.md)                               |
 | [create-inks2d](packages/create-inks2d) | [![create-inks2d version](https://img.shields.io/npm/v/create-inks2d.svg?label=%20&style=flat-square)](packages/create-inks2d/CHANGELOG.md) |
 
 ---
