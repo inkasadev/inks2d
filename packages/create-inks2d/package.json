@@ -10,7 +10,7 @@
 	},
 	"files": [
 		"index.js",
-		"template-*",
+		"platform-*",
 		"dist"
 	],
 	"scripts": {
