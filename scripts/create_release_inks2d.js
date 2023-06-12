@@ -3,16 +3,18 @@
 import cp from "child_process";
 import https from "https";
 import { fileURLToPath } from "url";
-import { join, dirname } from "path";
+import { dirname, join } from "node:path";
 import { readFile, writeFile } from "fs/promises";
 import pkg from "../packages/lib/package.json" assert { type: "json" };
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const _dirname =
+  typeof __dirname !== "undefined"
+    ? __dirname
+    : dirname(fileURLToPath(import.meta.url));
 
 const REMOTE = "origin";
 const REPO = "inkasadev/inks2d";
-const CHANGELOG_MD = join(__dirname, "../CHANGELOG_inks2d.md");
+const CHANGELOG_MD = join(_dirname, "../CHANGELOG_inks2d.md");
 
 /**
  * @param {string} cmd
