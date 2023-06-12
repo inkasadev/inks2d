@@ -1,6 +1,6 @@
 {
 	"name": "inks2d",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A free no-dependency Typescript game engine designed for developing 2D games",
 	"author": "Phillipe Martins",
 	"bugs": "https://github.com/inkasadev/inks2d/issues",
