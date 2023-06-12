@@ -13,6 +13,9 @@ const REMOTE = "origin";
 const REPO = "inkasadev/inks2d";
 const CHANGELOG_MD = join(__dirname, "../CHANGELOG.md");
 
+console.log("__dirname => ", __dirname);
+console.log("CHANGELOG_MD => ", CHANGELOG_MD);
+
 /**
  * @param {string} cmd
  * @returns {Promise<string>}
@@ -105,6 +108,8 @@ async function main() {
 			`${heading} ${currentVersion} (${dateStr})` +
 			fullChangelog.substring(start);
 		start = fullChangelog.indexOf(`${heading} ${currentVersion}`);
+
+		console.log("Writing changelog in", CHANGELOG_MD);
 
 		await writeFile(CHANGELOG_MD, fullChangelog);
 		await exec(`git add "${CHANGELOG_MD}"`);
