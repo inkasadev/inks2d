@@ -129,25 +129,73 @@ export abstract class DisplayObject {
 	/**
 	 * Enables/Disables display object's shadow.
 	 */
+	/**
+	 * Enables or disables the display object's shadow.
+	 */
 	public shadow: boolean = false;
-
+	/**
+	 * The color of the display object's shadow in CSS rgba format.
+	 */
 	public shadowColor: string = "rgba(100, 100, 100, 0.5)";
+	/**
+	 * The x and y offsets of the display object's shadow.
+	 */
 	public shadowOffsetX: number = 3;
 	public shadowOffsetY: number = 3;
+	/**
+	 * The blur amount of the display object's shadow.
+	 */
 	public shadowBlur: number = 3;
 	public isOnViewport: boolean = true;
-
+	/**
+	 * Sets the blend mode for the display object.
+	 */
 	public blendMode: GlobalCompositeOperation = "source-over";
+	/**
+	 * The filter applied to the display object. It specifies the filter effect to be applied.
+	 * @default "none"
+	 */
 	public filter: string = "none";
 
+	/**
+	 * An array of frames that define the animation sequence for the display object.
+	 */
 	public frames: any[] = [];
+
+	/**
+	 * Determines whether the animation should loop or not.
+	 * @default true
+	 */
 	public loop: boolean = true;
 
+	/**
+	 * The fill style of the display object. It specifies the color or style to use when filling shapes.
+	 * @default "gray"
+	 */
 	public fillStyle: string = "gray";
+
+	/**
+	 * The stroke style of the display object. It specifies the color or style to use when drawing lines.
+	 * @default "none"
+	 */
 	public strokeStyle: string = "none";
+
+	/**
+	 * The width of the lines drawn by the display object's stroke.
+	 * @default 0
+	 */
 	public lineWidth: number = 0;
+
+	/**
+	 * Determines whether the display object should be used as a mask or not.
+	 * @default false
+	 */
 	public mask: boolean = false;
 
+	/**
+	 * Additional custom properties for the display object.
+	 * It is a key-value pair object where the key is a string and the value can be of any type.
+	 */
 	public customProperties: Record<string, any> = {};
 
 	/***/
@@ -332,15 +380,27 @@ export abstract class DisplayObject {
 		};
 	}
 
+	/**
+	 * Checks whether the display object is empty, i.e., it has no children.
+	 * @returns True if the display object has no children, false otherwise.
+	 */
 	get empty(): boolean {
 		if (this.children.length === 0) return true;
 		return false;
 	}
 
+	/**
+	 * Determines whether the display object is draggable.
+	 * @returns True if the display object is draggable, false otherwise.
+	 */
 	get draggable(): boolean {
 		return this._draggable;
 	}
 
+	/**
+	 * Sets the draggable property of the display object.
+	 * @param value - A boolean value indicating whether the display object should be draggable or not.
+	 */
 	set draggable(value: boolean) {
 		if (value) {
 			EC_DRAGGABLE_SPRITES.push(this);
@@ -351,8 +411,17 @@ export abstract class DisplayObject {
 		EC_DRAGGABLE_SPRITES.splice(EC_DRAGGABLE_SPRITES.indexOf(this), 1);
 	}
 
+	/**
+	 * Executes logic when the display object is added to a parent.
+	 */
 	added(): void {}
+	/**
+	 * Executes logic to update the display object.
+	 */
 	update(): void {}
+	/**
+	 * Executes logic to destroy the display object and its children.
+	 */
 	destroy(): void {
 		for (let i = this.children.length - 1; i >= 0; i--) {
 			const child = this.children[i];
@@ -360,6 +429,9 @@ export abstract class DisplayObject {
 		}
 	}
 
+	/**
+	 * Moves the display object based on its velocity, acceleration, and other properties.
+	 */
 	move(): void {
 		this.velocity = this.velocity.add(this.acceleration);
 
@@ -375,6 +447,10 @@ export abstract class DisplayObject {
 		this.position = this.position.add(this.velocity);
 	}
 
+	/**
+	 * Adds a child sprite to the display object.
+	 * @param sprite - The sprite to add as a child.
+	 */
 	addChild(sprite: DisplayObject): void {
 		if (sprite.parent != null) {
 			sprite.parent.remove(sprite);
@@ -393,6 +469,12 @@ export abstract class DisplayObject {
 		if (spriteLayer !== 0) sprite.layer = spriteLayer;
 	}
 
+	/**
+	 * Removes a child sprite from the display object.
+	 * @param sprite - The sprite to remove from the children.
+	 * @returns True if the sprite was successfully removed, false otherwise.
+	 * @throws Error if the sprite is not a child of the display object.
+	 */
 	removeChild(sprite: DisplayObject): boolean {
 		if (sprite.parent === this) {
 			const btnId = EC_BUTTONS.indexOf(sprite);
@@ -422,6 +504,12 @@ export abstract class DisplayObject {
 		);
 	}
 
+	/**
+	 * Positions a sprite on top of the display object.
+	 * @param sprite - The sprite to position on top.
+	 * @param xOffset - The additional horizontal offset from the center position.
+	 * @param yOffset - The additional vertical offset from the center position.
+	 */
 	putTop(sprite: DisplayObject, xOffset = 0, yOffset = 0): void {
 		yOffset *= -1;
 		sprite.position.x =
@@ -429,18 +517,36 @@ export abstract class DisplayObject {
 		sprite.position.y = this.position.y - sprite.height + yOffset;
 	}
 
+	/**
+	 * Positions a sprite to the right of the display object.
+	 * @param sprite - The sprite to position to the right.
+	 * @param xOffset - The additional horizontal offset from the center position.
+	 * @param yOffset - The additional vertical offset from the center position.
+	 */
 	putRight(sprite: DisplayObject, xOffset = 0, yOffset = 0): void {
 		sprite.position.x = this.position.x + this.width + xOffset;
 		sprite.position.y =
 			this.position.y + this.halfHeight - sprite.halfHeight + yOffset;
 	}
 
+	/**
+	 * Positions a sprite below the display object.
+	 * @param sprite - The sprite to position below.
+	 * @param xOffset - The additional horizontal offset from the center position.
+	 * @param yOffset - The additional vertical offset from the center position.
+	 */
 	putBottom(sprite: DisplayObject, xOffset = 0, yOffset = 0): void {
 		sprite.position.x =
 			this.position.x + this.halfWidth - sprite.halfWidth + xOffset;
 		sprite.position.y = this.position.y + this.height + yOffset;
 	}
 
+	/**
+	 * Positions a sprite at the center of the display object.
+	 * @param sprite - The sprite to position at the center.
+	 * @param xOffset - The additional horizontal offset from the center position.
+	 * @param yOffset - The additional vertical offset from the center position.
+	 */
 	putLeft(sprite: DisplayObject, xOffset = 0, yOffset = 0): void {
 		xOffset *= -1;
 		sprite.position.x = this.position.x - sprite.width + xOffset;
@@ -448,6 +554,12 @@ export abstract class DisplayObject {
 			this.position.y + this.halfHeight - sprite.halfHeight + yOffset;
 	}
 
+	/**
+	 * Positions a sprite at the center of the display object.
+	 * @param sprite - The sprite to position at the center.
+	 * @param xOffset - The additional horizontal offset from the center position.
+	 * @param yOffset - The additional vertical offset from the center position.
+	 */
 	putCenter(sprite: DisplayObject, xOffset = 0, yOffset = 0): void {
 		sprite.position.x =
 			this.position.x - this.width * this.pivot.x + this.halfWidth + xOffset;
@@ -455,6 +567,12 @@ export abstract class DisplayObject {
 			this.position.y - this.height * this.pivot.y + this.halfHeight + yOffset;
 	}
 
+	/**
+	 * Swaps the positions of two child sprites.
+	 * @param child1 - The first sprite to swap.
+	 * @param child2 - The second sprite to swap.
+	 * @throws Error if either sprite is not a child of the display object.
+	 */
 	swapChildren(child1: DisplayObject, child2: DisplayObject): void {
 		const index1 = this.children.indexOf(child1);
 		const index2 = this.children.indexOf(child2);
@@ -470,12 +588,20 @@ export abstract class DisplayObject {
 		);
 	}
 
+	/**
+	 * Adds multiple sprites as children to the display object.
+	 * @param spritesToAdd - The sprites to add as children.
+	 */
 	add(...spritesToAdd: DisplayObject[]): void {
 		spritesToAdd.forEach((sprite) => {
 			this.addChild(sprite);
 		});
 	}
 
+	/**
+	 * Removes multiple sprites from the display object.
+	 * @param spritesToRemove - The sprites to remove.
+	 */
 	remove(...spritesToRemove: DisplayObject[]): void {
 		spritesToRemove.forEach((sprite) => this.removeChild(sprite));
 	}
