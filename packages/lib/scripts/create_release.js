@@ -75,7 +75,7 @@ async function main() {
 	}
 
 	console.log(`Creating release ${currentVersion}`);
-	console.log("Updating changelog...");
+	console.log("Updating changelog in ", CHANGELOG_MD);
 
 	const heading = patch === "0" ? "#" : "##";
 	let fullChangelog = await readFile(CHANGELOG_MD, "utf-8");

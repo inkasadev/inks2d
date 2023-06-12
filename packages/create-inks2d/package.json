@@ -1,6 +1,6 @@
 {
 	"name": "create-inks2d",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"type": "module",
 	"license": "MIT",
 	"author": "Phillipe Martins",
@@ -10,7 +10,7 @@
 	},
 	"files": [
 		"index.js",
-		"template-*",
+		"platform-*",
 		"dist"
 	],
 	"scripts": {

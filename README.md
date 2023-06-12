@@ -2,13 +2,13 @@
 
 # inks2d <!-- omit in toc -->
 
-![npm](https://img.shields.io/npm/v/inks2d?style=flat-square)
+[![npm](https://img.shields.io/npm/v/inks2d?style=flat-square)](https://www.npmjs.com/package/inks2d)
 ![minzip](https://img.shields.io/bundlephobia/minzip/inks2d?style=flat-square)
-![npm-dt](https://img.shields.io/npm/dt/inks2d?style=flat-square)
+[![npm-dt](https://img.shields.io/npm/dt/inks2d?style=flat-square)](#installation)
 
-![stars](https://img.shields.io/github/stars/inkasadev/inks2d?style=flat-square)
-![code-quality](https://img.shields.io/codefactor/grade/github/inkasadev/inks2d/main?style=flat-square)
-![license](https://img.shields.io/github/license/inkasadev/inks2d?style=flat-square)
+[![stars](https://img.shields.io/github/stars/inkasadev/inks2d?style=flat-square)](https://github.com/inkasadev/inks2d)
+[![code-quality](https://img.shields.io/codefactor/grade/github/inkasadev/inks2d/main?style=flat-square)](https://www.codefactor.io/repository/github/inkasadev/inks2d)
+[![license](https://img.shields.io/github/license/inkasadev/inks2d?style=flat-square)](https://github.com/inkasadev/inks2d/blob/main/LICENSE.md)
 
 inks2d is a free no-dependency Typescript game engine designed for developing 2D games. It provides you with a fast, friendly and clean framework to prototype and develop your games on. This means that most of the hard work is already done, letting you concentrate on the design and testing of your game.
 
@@ -75,16 +75,16 @@ You can also directly specify the project name and the platform you want to use 
 
 ```bash
 # npm 6.x
-npm create inks2d@latest my-inks2d-game --template web
+npm create inks2d@latest my-inks2d-game --platform web
 
 # npm 7+, extra double-dash is needed:
-npm create inks2d@latest my-inks2d-game -- --template web
+npm create inks2d@latest my-inks2d-game -- --platform web
 
 # yarn
-yarn create inks2d my-inks2d-game --template web
+yarn create inks2d my-inks2d-game --platform web
 
 # pnpm
-pnpm create inks2d my-inks2d-game --template web
+pnpm create inks2d my-inks2d-game --platform web
 ```
 See [create-inks2d](https://github.com/inkasadev/inks2d/tree/main/packages/create-inks2d) for more details on each supported platform
 
@@ -97,7 +97,7 @@ See [create-inks2d](https://github.com/inkasadev/inks2d/tree/main/packages/creat
 import { Engine, Scene } from "inks2d";
 import { Rectangle } from "inks2d/geom";
 
-const g = new Engine(512, 512);
+const g = new Engine(640, 480);
 
 class Main extends Scene {
   constructor() {
