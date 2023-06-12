@@ -1,5 +1,7 @@
 # Unreleased
 
+## v0.1.1 (2023-06-12)
+
 - docs: update readme with create-inks2d info
 
 # v0.1.0 (2023-06-10)
