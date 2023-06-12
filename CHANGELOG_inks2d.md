@@ -2,7 +2,7 @@
 
 ### Docs
 
-- docs: update readme with create-inks2d info
+- docs: update readme with create-inks2d
 
 # v0.1.1 (2023-06-12)
 
