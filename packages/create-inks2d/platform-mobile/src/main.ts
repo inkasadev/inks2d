@@ -1,8 +1,11 @@
 import { Engine, Scene } from "inks2d";
 import { SplashScreen } from "inks2d/extras";
 import { Sprite } from "inks2d/graphics";
+import { Detect } from "inks2d/utils";
+import "./app";
 
-const g = new Engine(640, 480);
+const border = Detect.Android() ? "none" : "1px dashed #000";
+const g = new Engine(1080, 1920, 60, true, border);
 
 class Main extends Scene {
 	constructor() {
@@ -28,5 +31,6 @@ g.scene = new SplashScreen(
 	"./mw_inks2d.png",
 );
 
-g.centerscreen = true;
+if (Detect.Android()) g.fullscreen = true;
+else g.centerscreen = true;
 g.start();

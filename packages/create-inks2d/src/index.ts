@@ -31,6 +31,7 @@ const cwd = process.cwd();
 const defaultTargetDir = "inks2d-game";
 const renameFiles: Record<string, string | undefined> = {
 	_gitignore: ".gitignore",
+	_github: ".github",
 };
 
 const init = async () => {
@@ -132,7 +133,7 @@ const init = async () => {
 	}
 
 	// user choice associated with prompts
-	const { platform, overwrite, packageName, variant } = result;
+	const { platform, overwrite, packageName, projectName, variant } = result;
 	const root = path.join(cwd, targetDir);
 
 	if (overwrite) {
@@ -193,7 +194,9 @@ const init = async () => {
 	};
 	const files = fs.readdirSync(platformDir);
 
-	for (const file of files.filter((f) => f !== "package.json")) {
+	for (const file of files.filter(
+		(f) => f !== "package.json" && f != "capacitor.config.ts",
+	)) {
 		write(file);
 	}
 
@@ -201,8 +204,22 @@ const init = async () => {
 		fs.readFileSync(path.join(platformDir, `package.json`), "utf-8"),
 	);
 	pkg.name = packageName || getProjectName();
-
 	write("package.json", JSON.stringify(pkg, null, 2) + "\n");
+
+	if (platform?.name === "mobile") {
+		const capacitorConfig = JSON.parse(
+			fs.readFileSync(path.join(platformDir, `capacitor.config.json`), "utf-8"),
+		);
+		capacitorConfig.appId = `com.${(packageName || getProjectName()).replaceAll(
+			"-",
+			"_",
+		)}.app`;
+		capacitorConfig.appName = projectName;
+		write(
+			"capacitor.config.json",
+			JSON.stringify(capacitorConfig, null, 2) + "\n",
+		);
+	}
 
 	const cdProjectName = path.relative(cwd, root);
 

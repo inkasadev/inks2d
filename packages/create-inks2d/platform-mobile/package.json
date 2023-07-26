@@ -1,0 +1,36 @@
+{
+	"name": "inks2d-mobile-starter",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"setup:android": "npm i @capacitor/android && npx cap add android",
+		"assets:android": "npx capacitor-assets generate --android",
+		"preview:web": "npm run build && vite preview",
+		"preview:android": "npm run build && npx cap run android"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.59.7",
+		"@typescript-eslint/parser": "^5.59.7",
+		"eslint": "^8.41.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-config-standard-with-typescript": "^34.0.1",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"prettier": "^2.8.8",
+		"@capacitor/assets": "^2.0.4",
+		"@capacitor/cli": "^5.0.5",
+		"typescript": "^5.0.2",
+		"vite": "^4.3.9"
+	},
+	"dependencies": {
+		"@capacitor-community/keep-awake": "^4.0.0",
+		"@capacitor/app": "^5.0.3",
+		"@capacitor/core": "^5.0.5",
+		"cordova-plugin-screen-orientation": "^3.0.3",
+		"inks2d": "^0.1.2"
+	}
+}
