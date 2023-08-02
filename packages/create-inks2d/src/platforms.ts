@@ -1,12 +1,19 @@
 import { Platform } from "types";
-import { yellow } from "kolorist";
+import { yellow, green } from "kolorist";
 
 const PLATFORMS: Platform[] = [
 	{
 		name: "web",
 		display: "Web",
 		color: yellow,
-	} /*,
+	},
+	{
+		name: "mobile",
+		display: "Mobile",
+		color: green,
+	},
+
+	/*,
 	{
 		name: "mobile",
 		display: "Mobile",
@@ -23,7 +30,7 @@ const PLATFORMS: Platform[] = [
 		name: "pc",
 		display: "PC",
 		color: cyan,
-	},*/,
+	},*/
 ];
 
 const PLATFORMS_NAMES = PLATFORMS.map(

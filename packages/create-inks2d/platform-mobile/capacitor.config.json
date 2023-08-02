@@ -1,0 +1,8 @@
+{
+	"appId": "com.inks2d_mobile_starter.app",
+	"appName": "inks2d-mobile-starter",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https"
+	}
+}
