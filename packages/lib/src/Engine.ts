@@ -500,6 +500,7 @@ export class Engine {
 			if (this._scene) this._scene.update();
 		}
 
+		this.resize();
 		this.pointer.clearCache();
 	}
 

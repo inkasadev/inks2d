@@ -8,7 +8,7 @@ class Main extends Scene {
     super();
   }
 
-  async start(engine: Engine) {
+  override start(engine: Engine) {
     super.start(engine);
 
     const rect = new Rectangle(50, 50, "blue");

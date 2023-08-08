@@ -1,8 +1,10 @@
 # Unreleased
 
-### Docs
+### Features
 
-- docs: update readme with create-inks2d
+- feat: screen auto-resize when fullscreen mode
+
+
 
 # v0.1.1 (2023-06-12)
 
