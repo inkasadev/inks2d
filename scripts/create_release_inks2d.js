@@ -77,12 +77,10 @@ async function main() {
   const currentVersion = `v${pkg.version}`;
   const [_major, _minor, patch] = currentVersion.substring(1).split(".");
 
-  /*
   if (lastTag == currentVersion) {
     console.log("No version change, not publishing.");
     return;
   }
-  */
 
   console.log(`Creating release ${currentVersion}`);
   console.log("Updating changelog in ", CHANGELOG_MD);
@@ -119,7 +117,6 @@ async function main() {
     await exec(`git add "${CHANGELOG_MD}"`);
     await exec(`git commit -m "chore: update changelog for release"`);
     await exec(`git push ${REMOTE}`).catch(() => {});
-    console.log("fullChangelog => ", fullChangelog);
   }
 
   start = fullChangelog.indexOf("\n", start) + 1;
@@ -127,11 +124,8 @@ async function main() {
   let end = fullChangelog.indexOf("# v0.", start);
   end = fullChangelog.lastIndexOf("\n", end);
 
-  console.log("Changelog => ", fullChangelog.substring(start, end));
-
-  // console.log("Creating tag...");
+  console.log("Creating tag...");
   // Delete the tag if it exists already.
-  /*
   await exec(`git tag -d ${currentVersion}`).catch(() => void 0);
   await exec(`git tag ${currentVersion}`);
   await exec(`git push ${REMOTE} refs/tags/${currentVersion} --quiet --force`);
@@ -141,7 +135,6 @@ async function main() {
     name: currentVersion,
     body: fullChangelog.substring(start, end),
   });
-  */
 
   console.log("OK");
 }
