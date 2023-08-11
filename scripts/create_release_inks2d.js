@@ -72,10 +72,12 @@ async function main() {
   const currentVersion = `v${pkg.version}`;
   const [_major, _minor, patch] = currentVersion.substring(1).split(".");
 
+  /*
   if (lastTag == currentVersion) {
     console.log("No version change, not publishing.");
     return;
   }
+  */
 
   console.log(`Creating release ${currentVersion}`);
   console.log("Updating changelog in ", CHANGELOG_MD);
