@@ -24,11 +24,17 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Generate Release
+      - name: Generate Release and Changelog
         run: |
-          git config user.email "hi@inkasadev.com"
+          git config user.email ""
           git config user.name "inks2d Bot"
           git config advice.ignoredHook false
           node scripts/create_release_inks2d.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Changelog
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: inks2d Bot
+          author_email: hi@inkasadev.com
