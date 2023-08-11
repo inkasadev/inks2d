@@ -9,13 +9,12 @@ jobs:
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          token: ${{secrets.PAT}}
       - id: check
         uses: EndBug/version-check@v2.1.0
         with:
