@@ -31,7 +31,6 @@ function exec(cmd) {
           "LF will be replaced by CRLF the next time Git touches it"
         )
       ) {
-        console.log("stderr => ", stderr);
         return reject(new Error(stderr));
       }
 

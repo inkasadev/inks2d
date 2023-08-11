@@ -1,9 +1,9 @@
 # Unreleased
 
-## v0.1.2 (2023-08-11)
-
 ### Features
 
+- feat: screen auto-resize when fullscreen mode
+- feat: screen auto-resize when fullscreen mode
 - feat: screen auto-resize when fullscreen mode
 
 # v0.1.1 (2023-06-12)
