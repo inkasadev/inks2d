@@ -9,7 +9,6 @@ jobs:
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,9 +24,9 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Generate Release and Changelog
+      - name: Generate Release
         run: |
-          git config user.email ""
+          git config user.email "hi@inkasadev.com"
           git config user.name "inks2d Bot"
           git config advice.ignoredHook false
           node scripts/create_release_inks2d.js
