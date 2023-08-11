@@ -9,8 +9,7 @@ jobs:
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    permissions: write-all
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
