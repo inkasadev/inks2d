@@ -119,8 +119,11 @@ async function main() {
   let end = fullChangelog.indexOf("# v0.", start);
   end = fullChangelog.lastIndexOf("\n", end);
 
-  console.log("Creating tag...");
+  console.log("Changelog => ", fullChangelog.substring(start, end));
+
+  // console.log("Creating tag...");
   // Delete the tag if it exists already.
+  /*
   await exec(`git tag -d ${currentVersion}`).catch(() => void 0);
   await exec(`git tag ${currentVersion}`);
   await exec(`git push ${REMOTE} refs/tags/${currentVersion} --quiet --force`);
@@ -130,6 +133,7 @@ async function main() {
     name: currentVersion,
     body: fullChangelog.substring(start, end),
   });
+  */
 
   console.log("OK");
 }

@@ -4,8 +4,6 @@
 
 - feat: screen auto-resize when fullscreen mode
 
-
-
 # v0.1.1 (2023-06-12)
 
 ### Docs
