@@ -25,7 +25,13 @@ function exec(cmd) {
     cp.exec(cmd, { encoding: "utf-8" }, (err, stdout, stderr) => {
       if (err) return reject(err);
 
-      if (stderr.trim().length) {
+      if (
+        stderr.trim().length &&
+        !stderr.includes(
+          "LF will be replaced by CRLF the next time Git touches it"
+        )
+      ) {
+        console.log("stderr => ", stderr);
         return reject(new Error(stderr));
       }
 
@@ -111,9 +117,9 @@ async function main() {
     start = fullChangelog.indexOf(`${heading} ${currentVersion}`);
 
     await writeFile(CHANGELOG_MD, fullChangelog);
-    await exec(`git add "${CHANGELOG_MD}"`);
-    await exec(`git commit -m "Update changelog for release"`);
-    await exec(`git push ${REMOTE}`).catch(() => {});
+    // await exec(`git add "${CHANGELOG_MD}"`);
+    // await exec(`git commit -m "chore: update changelog for release"`);
+    // await exec(`git push ${REMOTE}`).catch(() => {});
   }
 
   start = fullChangelog.indexOf("\n", start) + 1;
