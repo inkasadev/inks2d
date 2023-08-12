@@ -1,5 +1,7 @@
 # Unreleased
 
+- feat(create-inks2d): add mobile platform
+
 # v1.0.2 (2023-06-11)
 
 - chore(create-inks2d): add platform-* folders in build
