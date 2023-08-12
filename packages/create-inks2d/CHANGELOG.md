@@ -1,5 +1,7 @@
 # Unreleased
 
+# v1.1.0 (2023-08-12)
+
 - feat(create-inks2d): add mobile platform
 
 # v1.0.2 (2023-06-11)
