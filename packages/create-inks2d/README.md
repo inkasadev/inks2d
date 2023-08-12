@@ -41,5 +41,6 @@ pnpm create inks2d my-inks2d-game --platform web
 Currently supported platforms presets include:
 
 - `web`
+- `mobile`
 
 You can use `.` for the project name to scaffold in the current directory.
