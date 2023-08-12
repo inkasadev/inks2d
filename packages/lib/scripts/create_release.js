@@ -2,7 +2,7 @@
 import cp from "child_process";
 import https from "https";
 import { fileURLToPath } from "url";
-import { join, dirname } from "path";
+import { join, dirname } from "node:path";
 import { readFile, writeFile } from "fs/promises";
 import pkg from "../package.json" assert { type: "json" };
 
@@ -69,7 +69,6 @@ async function createGitHubRelease(args) {
 async function main() {
 	const lastTag = await exec("git describe --tags --abbrev=0");
 	const currentVersion = `v${pkg.version}`;
-	const currentVersionForTag = `create-inks2d@${pkg.version}`;
 	const [_major, _minor, patch] = currentVersion.substring(1).split(".");
 
 	if (lastTag == currentVersion) {
@@ -78,7 +77,7 @@ async function main() {
 	}
 
 	console.log(`Creating release ${currentVersion}`);
-	console.log("Updating changelog...");
+	console.log("Updating changelog in ", CHANGELOG_MD);
 
 	const heading = patch === "0" ? "#" : "##";
 	let fullChangelog = await readFile(CHANGELOG_MD, "utf-8");
@@ -108,11 +107,9 @@ async function main() {
 			fullChangelog.substring(start);
 		start = fullChangelog.indexOf(`${heading} ${currentVersion}`);
 
-		console.log("Writing changelog in", CHANGELOG_MD);
-
 		await writeFile(CHANGELOG_MD, fullChangelog);
 		await exec(`git add "${CHANGELOG_MD}"`);
-		await exec(`git commit -m "Update changelog for release"`);
+		await exec(`git commit -m "chore: update changelog for release"`);
 		await exec(`git push ${REMOTE}`).catch(() => {});
 	}
 
@@ -124,15 +121,13 @@ async function main() {
 	console.log("Creating tag...");
 
 	// Delete the tag if it exists already.
-	await exec(`git tag -d ${currentVersionForTag}`).catch(() => void 0);
-	await exec(`git tag ${currentVersionForTag}`);
-	await exec(
-		`git push ${REMOTE} refs/tags/${currentVersionForTag} --quiet --force`,
-	);
+	await exec(`git tag -d ${currentVersion}`).catch(() => void 0);
+	await exec(`git tag ${currentVersion}`);
+	await exec(`git push ${REMOTE} refs/tags/${currentVersion} --quiet --force`);
 
 	await createGitHubRelease({
-		tag_name: currentVersionForTag,
-		name: currentVersionForTag,
+		tag_name: currentVersion,
+		name: currentVersion,
 		body: fullChangelog.substring(start, end),
 	});
 
