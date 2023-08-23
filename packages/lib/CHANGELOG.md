@@ -1,5 +1,7 @@
 # Unreleased
 
+- feat: add removeTween helper function [#35](https://github.com/inkasadev/inks2d/issues/35)
+
 ## v0.1.3 (2023-08-23)
 
 ### Features
