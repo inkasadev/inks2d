@@ -2,6 +2,7 @@ import { DisplayObject } from "DisplayObject";
 import { Point, randomInt } from "inks2d/math";
 import { Easing, Interpolation, Tween } from "inks2d/effects/tweens";
 import { Sound } from "inks2d/effects/sfx";
+import { EC_TWEENS } from "EngineConstants";
 
 export const fadeIn = (
 	sprite: DisplayObject,
@@ -111,6 +112,29 @@ export const blink = (
 		.start();
 
 	return tween;
+};
+
+export const removeTween = (...obj: Tween[]): void => {
+	if (obj.length === 1) {
+		let tween = obj[0];
+		let id = EC_TWEENS.indexOf(tween);
+
+		if (id !== -1) {
+			tween.pause();
+			EC_TWEENS.splice(id, 1);
+		}
+
+		return;
+	}
+
+	obj.forEach((tween) => {
+		let id = EC_TWEENS.indexOf(tween);
+
+		if (id !== -1) {
+			tween.pause();
+			EC_TWEENS.splice(id, 1);
+		}
+	});
 };
 
 export const playSfx = (
